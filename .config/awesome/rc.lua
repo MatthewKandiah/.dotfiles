@@ -274,7 +274,9 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, }, "l", function() menubar.show() end,
 		{ description = "show the menubar", group = "launcher" }),
 	awful.key({ modkey, "Shift" }, "space", function() awful.spawn(browser) end,
-		{ description = "open web browser" })
+		{ description = "open web browser" }),
+	awful.key({ modkey }, "m", function() awful.spawn("toggle-trackpad") end,
+		{ description = "toggle enable/disable trackpad" })
 )
 
 clientkeys = gears.table.join(
