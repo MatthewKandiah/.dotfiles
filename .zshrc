@@ -16,6 +16,7 @@ alias gl="git pull"
 alias gp="git push"
 alias gd="git diff"
 alias gco="git checkout"
+alias gb="git branch"
 
 # other aliases
 alias ls="ls --color"
