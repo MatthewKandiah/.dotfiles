@@ -67,15 +67,15 @@ awful.layout.layouts = {
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
-	{ "hotkeys",     function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-	{ "restart",     awesome.restart },
-	{ "quit",        function() awesome.quit() end },
+	{ "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+	{ "restart", awesome.restart },
+	{ "quit",    function() awesome.quit() end },
 }
 
 mymainmenu = awful.menu({
 	items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-		{ "terminal", terminal },
-		{ "browser", browser },
+		{ "terminal",     terminal },
+		{ "browser",      browser },
 		{ "file manager", file_manager },
 	}
 })
@@ -394,6 +394,9 @@ awful.rules.rules = {
 		},
 		properties = { titlebars_enabled = true }
 	},
+
+	-- Firefox remembers if it was previously maximised and makes itself fullscreen, which messes with tiling
+	{ rule = { class = "firefox" }, properties = { opacity = 1, maximized = false, floating = false } }
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 	-- { rule = { class = "Firefox" },
