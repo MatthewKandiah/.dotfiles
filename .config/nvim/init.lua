@@ -79,7 +79,6 @@ require('lazy').setup({
 		opts = {},
 	},
 	'mbbill/undotree',
-	'hiphish/rainbow-delimiters.nvim',
 }, {})
 
 -- copy to clipboard and selection registers
@@ -220,7 +219,6 @@ mason_lspconfig.setup_handlers {
 -- treesitter config
 vim.defer_fn(function()
 	require('nvim-treesitter.configs').setup {
-		rainbow = { enable = true },
 		ensure_installed = { 'lua' },
 		auto_install = true,
 		highlight = { enable = true },
