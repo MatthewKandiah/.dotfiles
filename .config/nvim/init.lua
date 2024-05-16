@@ -213,7 +213,8 @@ mason_lspconfig.setup_handlers {
 	function(server_name)
 		lspconfig[server_name].setup(default_lsp_options)
 	end,
-	lspconfig.racket_langserver.setup(default_lsp_options) -- requires racket-langserver, install with `raco pkg install racket-langserver`
+	lspconfig.racket_langserver.setup(default_lsp_options), -- requires racket-langserver, install with `raco pkg install racket-langserver`
+	lspconfig.zls.setup(default_lsp_options), -- requires zls on path, used because Mason installs an outdated version
 }
 
 -- treesitter config
