@@ -276,7 +276,13 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "space", function() awful.spawn(browser) end,
 		{ description = "open web browser" }),
 	awful.key({ modkey }, "m", function() awful.spawn("toggle-trackpad") end,
-		{ description = "toggle enable/disable trackpad" })
+		{ description = "toggle enable/disable trackpad" }),
+	awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%") end,
+		{ description = "increase volume" }),
+	awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%") end, {description = "decrease volume"}),
+	awful.key({}, "XF86AudioMute", function()
+		awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ 'toggle'")
+	end, {description = "toggle mute" })
 )
 
 clientkeys = gears.table.join(
