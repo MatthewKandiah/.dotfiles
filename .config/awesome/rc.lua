@@ -233,30 +233,13 @@ globalkeys = gears.table.join(
 		end,
 		{ description = "focus previous by index", group = "focus" }
 	),
-	-- Layout manipulation
-	awful.key({ modkey, }, ";", function() awful.layout.inc(1) end,
-		{ description = "select next", group = "layout" }),
-	awful.key({ modkey, "Shift" }, ";", function() awful.layout.inc(-1) end,
-		{ description = "select previous", group = "layout" }),
-	awful.key({ modkey, "Shift" }, "e", function() awful.client.swap.byidx(1) end,
-		{ description = "swap with next client by index", group = "swap" }),
-	awful.key({ modkey, "Shift" }, "n", function() awful.client.swap.byidx(-1) end,
-		{ description = "swap with previous client by index", group = "swap" }),
-	awful.key({ modkey, "Control" }, "e", function() awful.screen.focus_relative(1) end,
-		{ description = "focus the next screen", group = "focus" }),
-	awful.key({ modkey, "Control" }, "n", function() awful.screen.focus_relative(-1) end,
-		{ description = "focus the previous screen", group = "focus" }),
-	-- Alternate bindings that work better with qmk homerow modifiers
+	-- Alternate layout manipulation that work better with qmk homerow modifiers
 	awful.key({ modkey, }, "Right",
-		function()
-			awful.client.focus.byidx(1)
-		end,
+		function() awful.client.focus.byidx(1) end,
 		{ description = "focus next by index", group = "focus" }
 	),
 	awful.key({ modkey, }, "Left",
-		function()
-			awful.client.focus.byidx(-1)
-		end,
+		function() awful.client.focus.byidx(-1) end,
 		{ description = "focus previous by index", group = "focus" }
 	),
 	awful.key({ modkey, }, "Down", function() awful.layout.inc(1) end,
@@ -265,24 +248,27 @@ globalkeys = gears.table.join(
 		{ description = "swap with next client by index", group = "focus" }),
 	awful.key({ modkey, }, "Page_Up", function() awful.client.swap.byidx(-1) end,
 		{ description = "swap with previous client by index", group = "swap" }),
-	-- Standard program
+	-- Standard programs
 	awful.key({ modkey, "Control" }, "space", function() awful.spawn(terminal) end,
 		{ description = "open a terminal", group = "launcher" }),
-	-- Menubar
 	awful.key({ modkey, }, "l", function() menubar.show() end,
 		{ description = "show the menubar", group = "launcher" }),
 	awful.key({ modkey, "Shift" }, "space", function() awful.spawn(browser) end,
 		{ description = "open web browser" }),
 	awful.key({ modkey }, "m", function() awful.spawn("toggle-trackpad") end,
 		{ description = "toggle enable/disable trackpad" }),
+	-- fix laptop keys
 	awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%") end,
 		{ description = "increase volume" }),
-	awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%") end, {description = "decrease volume"}),
+	awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%") end,
+		{ description = "decrease volume" }),
 	awful.key({}, "XF86AudioMute", function()
 		awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ 'toggle'")
-	end, {description = "toggle mute" }),
-	awful.key({}, "XF86MonBrightnessUp", function() awful.spawn("light -A 10") end, {description = "increase brightness"}),
-	awful.key({}, "XF86MonBrightnessDown", function() awful.spawn("light -U 10") end, {description = "decrease brightness"})
+	end, { description = "toggle mute" }),
+	awful.key({}, "XF86MonBrightnessUp", function() awful.spawn("light -A 10") end,
+		{ description = "increase brightness" }),
+	awful.key({}, "XF86MonBrightnessDown", function() awful.spawn("light -U 10") end,
+		{ description = "decrease brightness" })
 )
 
 clientkeys = gears.table.join(
