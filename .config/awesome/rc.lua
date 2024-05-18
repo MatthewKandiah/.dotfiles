@@ -221,8 +221,6 @@ globalkeys = gears.table.join(
 		{ description = "select next", group = "layout" }),
 	awful.key({ modkey, "Shift" }, ";", function() awful.layout.inc(-1) end,
 		{ description = "select previous", group = "layout" }),
-	awful.key({ modkey, }, "space", hotkeys_popup.show_help,
-		{ description = "show help", group = "awesome" }),
 	awful.key({ modkey, }, "e",
 		function()
 			awful.client.focus.byidx(1)
