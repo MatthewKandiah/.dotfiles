@@ -274,8 +274,6 @@ globalkeys = gears.table.join(
 clientkeys = gears.table.join(
 	awful.key({ modkey, }, ".", function(c) c:kill() end,
 		{ description = "close", group = "client" }),
-	awful.key({ modkey, }, "m", function(c) c:swap(awful.client.getmaster()) end,
-		{ description = "move to master", group = "client" }),
 	-- alternate binding that works better with qmk homerow modifiers
 	awful.key({ modkey, }, "Up", function(c) c:swap(awful.client.getmaster()) end,
 		{ description = "move to master", group = "client" }),
