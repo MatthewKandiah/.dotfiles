@@ -67,7 +67,7 @@ require('lazy').setup({
 		dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
 		build = ':TSUpdate',
 	},
-	{ 'folke/which-key.nvim', opts = {} },
+	-- { 'folke/which-key.nvim', opts = {} },
 	{
 		'numToStr/Comment.nvim',
 		opts = {},
@@ -79,7 +79,6 @@ require('lazy').setup({
 		'stevearc/oil.nvim',
 		opts = {},
 	},
-	'mbbill/undotree',
 }, {})
 
 -- copy to clipboard and selection registers
