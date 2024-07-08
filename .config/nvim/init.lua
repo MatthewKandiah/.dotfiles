@@ -42,7 +42,7 @@ require('lazy').setup({
 	'neovim/nvim-lspconfig',
 	'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim',
-	'navarasu/onedark.nvim',
+	'huyvohcmc/atlas.vim',
 	{
 		'nvim-telescope/telescope.nvim',
 		branch = '0.1.x',
@@ -214,6 +214,7 @@ mason_lspconfig.setup_handlers {
 	end,
 	lspconfig.racket_langserver.setup(default_lsp_options), -- requires racket-langserver, install with `raco pkg install racket-langserver`
 	lspconfig.zls.setup(default_lsp_options), -- requires zls on path, used because Mason installs an outdated version
+	lspconfig.dartls.setup(default_lsp_options),
 }
 
 -- treesitter config
@@ -280,12 +281,7 @@ vim.defer_fn(function()
 end, 0)
 
 -- theme config
-local theme = require('onedark')
-theme.setup {
-	style = 'darker',
-	ending_tildes = true,
-}
-theme.load()
+vim.cmd('colorscheme atlas')
 
 -- git signs config
 require('gitsigns').setup()
