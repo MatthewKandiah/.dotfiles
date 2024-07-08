@@ -43,6 +43,7 @@ require('lazy').setup({
 	'williamboman/mason.nvim',
 	'williamboman/mason-lspconfig.nvim',
 	'huyvohcmc/atlas.vim',
+	'aktersnurra/no-clown-fiesta.nvim',
 	{
 		'nvim-telescope/telescope.nvim',
 		branch = '0.1.x',
@@ -281,7 +282,7 @@ vim.defer_fn(function()
 end, 0)
 
 -- theme config
-vim.cmd('colorscheme atlas')
+vim.cmd('colorscheme no-clown-fiesta')
 
 -- git signs config
 require('gitsigns').setup()
