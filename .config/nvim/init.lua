@@ -22,6 +22,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 vim.wo.linebreak = true
 vim.o.cursorline = true
+vim.opt.foldcolumn = "1"
 
 -- bootstrap package manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
