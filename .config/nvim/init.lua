@@ -200,6 +200,9 @@ local on_attach = function(_, bufnr)
 	end, { desc = 'Format current buffer with LSP' })
 end
 
+-- filetype for go templ
+vim.filetype.add({ extension = { templ = "templ" }})
+
 -- lsp setup
 local lspconfig = require('lspconfig')
 local default_lsp_options = {
