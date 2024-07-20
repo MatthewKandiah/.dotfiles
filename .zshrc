@@ -4,6 +4,8 @@ SAVEHIST=10000
 unsetopt beep
 bindkey -v
 
+export PATH=/usr/local/go/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # git aliases
