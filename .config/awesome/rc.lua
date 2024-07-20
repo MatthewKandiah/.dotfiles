@@ -248,6 +248,9 @@ globalkeys = gears.table.join(
 		{ description = "swap with next client by index", group = "focus" }),
 	awful.key({ modkey, }, "Page_Up", function() awful.client.swap.byidx(-1) end,
 		{ description = "swap with previous client by index", group = "swap" }),
+	-- Move screen focus
+	awful.key({ modkey, }, "s", function() awful.screen.focus_relative(1) end,
+		{ description = "focus the next screen", group = "screen" }),
 	-- Standard programs
 	awful.key({ modkey, "Control" }, "space", function() awful.spawn(terminal) end,
 		{ description = "open a terminal", group = "launcher" }),
