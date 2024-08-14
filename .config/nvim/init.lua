@@ -126,7 +126,10 @@ require('telescope').setup({
 		layout_strategy = 'vertical',
 		layout_config = { height = 0.95 },
 		vimgrep_arguments = vimgrep_arguments,
-		path_display = { "truncate" },
+		path_display = function(opts, path)
+			local tail = require("telescope.utils").path_tail(path)
+			return string.format("%s (%s)", tail, path)
+		end,
 	},
 	pickers = {
 		find_files = {
