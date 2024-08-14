@@ -191,13 +191,19 @@ local on_attach = function(_, bufnr)
 	end
 	nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 	nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-	nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+	nmap('gd', function ()
+		require('telescope.builtin').lsp_definitions({show_line = false})
+		end, '[G]oto [D]efinition')
 	nmap('gr', function ()
 		require('telescope.builtin').lsp_references({ show_line = false })
 		end, '[G]oto [R]eferences')
-	nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+	nmap('gI', function ()
+		require('telescope.builtin').lsp_implementations({ show_line = false })
+		end, '[G]oto [I]mplementation')
 	nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-	nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+	nmap('gD', function ()
+		require('telescope.builtin').lsp_document_symbols({ show_line = false })
+		end, '[G]oto [D]ocument symbol')
 	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
 		vim.lsp.buf.format()
 	end, { desc = 'Format current buffer with LSP' })
@@ -231,56 +237,15 @@ vim.defer_fn(function()
 		auto_install = true,
 		highlight = { enable = true },
 		indent = { enable = true },
-		incremental_selection = {
-			enable = true,
-			keymaps = {
-				init_selection = '<c-space>',
-				node_incremental = '<c-space>',
-				scope_incremental = '<c-s>',
-				node_decremental = '<M-space>',
-			},
-		},
 		textobjects = {
 			select = {
 				enable = true,
 				lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
 				keymaps = {
-					-- You can use the capture groups defined in textobjects.scm
-					['aa'] = '@parameter.outer',
-					['ia'] = '@parameter.inner',
 					['af'] = '@function.outer',
 					['if'] = '@function.inner',
 					['ac'] = '@class.outer',
 					['ic'] = '@class.inner',
-				},
-			},
-			move = {
-				enable = true,
-				set_jumps = true, -- whether to set jumps in the jumplist
-				goto_next_start = {
-					[']m'] = '@function.outer',
-					[']]'] = '@class.outer',
-				},
-				goto_next_end = {
-					[']M'] = '@function.outer',
-					[']['] = '@class.outer',
-				},
-				goto_previous_start = {
-					['[m'] = '@function.outer',
-					['[['] = '@class.outer',
-				},
-				goto_previous_end = {
-					['[M'] = '@function.outer',
-					['[]'] = '@class.outer',
-				},
-			},
-			swap = {
-				enable = true,
-				swap_next = {
-					['<leader>a'] = '@parameter.inner',
-				},
-				swap_previous = {
-					['<leader>A'] = '@parameter.inner',
 				},
 			},
 		},
