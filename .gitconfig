@@ -3,3 +3,5 @@
 	name = Matthew Kandiah
 [init]
 	defaultBranch = main
+[core]
+	editor = nvim
