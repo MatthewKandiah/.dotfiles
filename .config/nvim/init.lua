@@ -259,8 +259,8 @@ vim.defer_fn(function()
 end, 0)
 
 -- theme config
--- vim.cmd('colorscheme no-clown-fiesta')
-vim.cmd('colorscheme apprentice')
+vim.cmd('colorscheme no-clown-fiesta')
+-- vim.cmd('colorscheme apprentice')
 
 -- git signs config
 require('gitsigns').setup()
