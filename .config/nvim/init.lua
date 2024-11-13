@@ -149,7 +149,7 @@ vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { des
 vim.keymap.set('n', '<leader>s~', function()
   require('telescope.builtin').find_files({ cwd = vim.env.HOME })
 end, { desc = '[S]earch [~] Directory' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>sh', require('telescope.builtin').search_history, { desc = '[S]earch [H]istory' })
 vim.keymap.set('n', '<leader>sg', function()
   require('telescope.builtin').live_grep({ disable_coordinates = true })
 end, { desc = '[S]earch by [G]rep' })
