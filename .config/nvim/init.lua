@@ -150,7 +150,7 @@ end, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc = '[S]earch [B]uffers' })
 
--- autocompletion config
+-- cmp-nvim autocompletion config
 local cmp = require('cmp')
 cmp.setup({
   snippet = {
@@ -162,6 +162,7 @@ cmp.setup({
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
+  completion = { autocomplete = false }, -- only autocomplete on cmp.mapping.complete call
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -222,7 +223,8 @@ local on_attach = function(_, bufnr)
   nmap('gc', function()
     require('telescope.builtin').grep_string()
   end, '[G]rep string under [c]ursor')
-  imap('<C-h>', function() vim.lsp.buf.signature_help({close_events = { 'CursorMoved', 'CursorMovedI' }}) end, 'LSP Signature [H]elp')
+  imap('<C-h>', function() vim.lsp.buf.signature_help({ close_events = { 'CursorMoved', 'CursorMovedI' } }) end,
+    'LSP Signature [H]elp')
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
