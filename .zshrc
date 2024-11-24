@@ -25,3 +25,6 @@ alias ls="ls --color"
 
 source ~/repos/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+FZF_ALT_C_COMMAND=""
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
