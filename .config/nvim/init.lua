@@ -286,3 +286,65 @@ local oil_actions = require('oil.actions')
 oil.setup()
 vim.keymap.set('n', '<leader>o', oil.open)
 vim.keymap.set('n', '<leader>_', oil_actions.open_cwd.callback)
+
+-- quick build and test
+BUILD_COMMAND = nil
+local function doBuild()
+  if (BUILD_COMMAND == nil)
+  then
+    print("Specify build command with SetBuild")
+  else
+    vim.cmd("!" .. BUILD_COMMAND)
+  end
+end
+vim.api.nvim_create_user_command(
+  "Build",
+  doBuild,
+  { desc = "Run user specified build command" }
+)
+vim.api.nvim_create_user_command(
+  "SetBuild",
+  function()
+    BUILD_COMMAND = vim.fn.input("Build command: ")
+  end,
+  { desc = "Set user specified build command" }
+)
+vim.api.nvim_create_user_command(
+  "UnsetBuild",
+  function()
+    BUILD_COMMAND = nil
+  end,
+  { desc = "Unset user specified build command to nil" }
+)
+
+TEST_COMMAND = nil
+local function doTest()
+  if (TEST_COMMAND == nil)
+  then
+    print("Specify test command with SetTest")
+  else
+    vim.cmd("!" .. TEST_COMMAND)
+  end
+end
+vim.api.nvim_create_user_command(
+  "Test",
+  doTest,
+  { desc = "Run user specified test command" }
+)
+vim.api.nvim_create_user_command(
+  "SetTest",
+  function()
+    TEST_COMMAND = vim.fn.input("Test commmand: ")
+  end,
+  { desc = "Set user specified test command" }
+)
+vim.api.nvim_create_user_command(
+  "UnsetTest",
+  function()
+    TEST_COMMAND = nil
+  end,
+  { desc = "Unset user specified test command to nil" }
+)
+
+vim.keymap.set('n', '<leader>b', doBuild, { desc = "Run Build" })
+vim.keymap.set('n', '<leader>t', doTest, { desc = "Run Test" })
