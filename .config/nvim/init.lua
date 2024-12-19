@@ -46,6 +46,7 @@ require('lazy').setup({
   'huyvohcmc/atlas.vim',
   'aktersnurra/no-clown-fiesta.nvim',
   'romainl/Apprentice',
+  'blazkowolf/gruber-darker.nvim',
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -276,7 +277,8 @@ end, 0)
 
 -- theme config
 -- vim.cmd('colorscheme no-clown-fiesta')
-vim.cmd('colorscheme apprentice')
+-- vim.cmd('colorscheme apprentice')
+vim.cmd('colorscheme gruber-darker')
 
 -- git signs config
 require('gitsigns').setup()
