@@ -46,7 +46,12 @@ require('lazy').setup({
   'huyvohcmc/atlas.vim',
   'aktersnurra/no-clown-fiesta.nvim',
   'romainl/Apprentice',
-  'blazkowolf/gruber-darker.nvim',
+  {
+    'blazkowolf/gruber-darker.nvim',
+    opts = {
+      bold = false,
+    }
+  },
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -109,8 +114,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<F3>', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', '<F2>', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<F4>', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+
+-- Quickfix list keymaps
+vim.keymap.set('n', '<F7>', function() vim.cmd('cnext') end, { desc = 'Go to next quickfix item' })
+vim.keymap.set('n', '<F8>', function() vim.cmd('cprev') end, { desc = 'Go to previous quickfix item' })
+vim.keymap.set('n', '<F9>', function() vim.cmd('copen') end, { desc = 'Open quickfix list' })
 
 -- telescope config
 -- search hidden files, but still ignore .git files https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#file-and-text-search-in-hidden-files-and-directories
@@ -173,10 +183,10 @@ cmp.setup({
     cmp.m
   }),
   sources = cmp.config.sources({
+    { name = 'path' },
     { name = 'nvim_lsp' },
     -- { name = 'luasnip' }, Not actually sure what completions this adds, snippets presumably? Removing to see if I notice a difference
     { name = 'buffer' },
-    { name = 'path' },
   }),
 })
 cmp.setup.cmdline({ '/', '?' }, {
@@ -277,8 +287,8 @@ end, 0)
 
 -- theme config
 -- vim.cmd('colorscheme no-clown-fiesta')
--- vim.cmd('colorscheme apprentice')
-vim.cmd('colorscheme gruber-darker')
+vim.cmd('colorscheme apprentice')
+-- vim.cmd('colorscheme gruber-darker')
 
 -- git signs config
 require('gitsigns').setup()
