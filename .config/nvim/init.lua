@@ -185,8 +185,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'path' },
     { name = 'nvim_lsp' },
-    -- { name = 'luasnip' }, Not actually sure what completions this adds, snippets presumably? Removing to see if I notice a difference
-    { name = 'buffer' },
+    { name = 'buffer', max_item_count = 3 },
   }),
 })
 cmp.setup.cmdline({ '/', '?' }, {
