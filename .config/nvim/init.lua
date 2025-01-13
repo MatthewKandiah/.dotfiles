@@ -299,4 +299,11 @@ oil.setup()
 vim.keymap.set('n', '<leader>o', oil.open)
 vim.keymap.set('n', '<leader>_', oil_actions.open_cwd.callback)
 
--- TODO: insert TODO comment and quickfix list integration
+-- TODO functionality
+local function insertTodoComment()
+  local current_line_number = vim.api.nvim_win_get_cursor(0)[1]
+  vim.api.nvim_buf_set_lines(0, current_line_number, current_line_number, false, {'TODO(Matt)'})
+  require('Comment.api').comment.linewise.count(2)
+  require('Comment.api').uncomment.linewise.current()
+end
+vim.keymap.set({ 'n' }, '<leader>t', insertTodoComment)
