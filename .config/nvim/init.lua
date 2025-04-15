@@ -305,5 +305,6 @@ local function insertTodoComment()
   vim.api.nvim_buf_set_lines(0, current_line_number, current_line_number, false, {'TODO-Matt'})
   require('Comment.api').comment.linewise.count(2)
   require('Comment.api').uncomment.linewise.current()
+  vim.cmd("normal j$")
 end
 vim.keymap.set({ 'n' }, '<leader>t', insertTodoComment)
