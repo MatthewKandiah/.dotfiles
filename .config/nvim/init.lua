@@ -183,9 +183,9 @@ cmp.setup({
     cmp.m
   }),
   sources = cmp.config.sources({
+    { name = 'buffer', max_item_count = 1 },
     { name = 'path' },
     { name = 'nvim_lsp' },
-    -- { name = 'buffer', max_item_count = 3 },
   }),
 })
 cmp.setup.cmdline({ '/', '?' }, {
