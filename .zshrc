@@ -4,9 +4,8 @@ SAVEHIST=10000
 unsetopt beep
 bindkey -v
 
-export PATH=/usr/local/go/bin:$PATH
-export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/code/vulkansdk_1.4.313.0/x86_64/bin:$PATH
 
 # git aliases
 alias gst="git status"
@@ -23,8 +22,9 @@ alias gb="git branch"
 # other aliases
 alias ls="ls --color"
 
-source ~/repos/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/code/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/code/vulkansdk_1.4.313.0/setup-env.sh
 
 FZF_ALT_C_COMMAND=""
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
