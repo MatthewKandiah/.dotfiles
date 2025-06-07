@@ -223,6 +223,7 @@ globalkeys = gears.table.join(
   awful.key({}, "XF86AudioMute", function()
     awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ 'toggle'")
   end, { description = "toggle mute" }),
+  -- note: need to install light e.g. with `sudo apt install light`, and grant user the permission to update the brightness value, see https://wiki.archlinux.org/title/Backlight#ACPI
   awful.key({}, "XF86MonBrightnessUp", function() awful.spawn("light -A 10") end,
     { description = "increase brightness" }),
   awful.key({}, "XF86MonBrightnessDown", function() awful.spawn("light -U 10") end,
