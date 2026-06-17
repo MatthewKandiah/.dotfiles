@@ -50,8 +50,9 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "mytheme.lua")
 
 local terminal = "alacritty"
 local browser = "firefox"
-local file_manager = "nemo"
+local file_manager = "thunar"
 local modkey = "Mod4"
+local emacs = "emacs"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -74,6 +75,7 @@ mymainmenu = awful.menu({
     { "terminal",     terminal },
     { "browser",      browser },
     { "file manager", file_manager },
+    { "emacs",        emacs},
   }
 })
 
